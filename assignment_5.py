@@ -8,7 +8,7 @@ OpenAI_Key = os.getenv("OPENAI_API_KEY")
 # Set your API key
 client = openai.OpenAI(api_key=OpenAI_Key)
 
-job_description = "ENTER RESUME: 5+ years hands-on experience in implementing solutions using Java/J2EE, Spring framework (Batch framework), Angular, API Development (REST), Rules Engine (DROOLS).2+ years hands-on experience in working with Cloud technologies (Microsoft Azure preferred) - features like Azure ASB, Azure functions, Azure Gateway, File Storage etc.3 years of Python development experience a plus.Proven experience working with Code Quality and Code Coverage tools and frameworks (e.g. Sonar).Strong programming, debugging and secure software development skills.Strong knowledge of CI/CD and DevOps (specifically Jenkins, UDeploy, GIT). Familiarity with Test Driven Development.Strong understanding of Java development environment and standard methodologies, such as Maven, Sonar, Bitbucket security and other Open-Source tools."
+JOB_DESCRIPTION = "ENTER RESUME: 5+ years hands-on experience in implementing solutions using Java/J2EE, Spring framework (Batch framework), Angular, API Development (REST), Rules Engine (DROOLS).2+ years hands-on experience in working with Cloud technologies (Microsoft Azure preferred) - features like Azure ASB, Azure functions, Azure Gateway, File Storage etc.3 years of Python development experience a plus.Proven experience working with Code Quality and Code Coverage tools and frameworks (e.g. Sonar).Strong programming, debugging and secure software development skills.Strong knowledge of CI/CD and DevOps (specifically Jenkins, UDeploy, GIT). Familiarity with Test Driven Development.Strong understanding of Java development environment and standard methodologies, such as Maven, Sonar, Bitbucket security and other Open-Source tools."
 
 # Define the review
 SAMPLE_RESUME = """
@@ -68,8 +68,8 @@ CERTIFICATIONS
 
 # Define the prompt 3
 messages = [
-    {"role": "system", "content": "Evaluate the resume to match the job description and generate 1 pare report"},
-    {"role": "user", "content": f'Evaluation This reume \n\n"{SAMPLE_RESUME}"\n based on the {job_description}'}
+    {"role": "system", "content": "Evaluate the resume to match the job description and generate 1 page report. The resume should match include all the techologies and tools mentioned in the job description. Also at end show a message if candidate is suitable for the position or not"},
+    {"role": "user", "content": f'Evaluation This reume \n\n"{SAMPLE_RESUME}"\n based on the {JOB_DESCRIPTION}'}
 ]
 
 
